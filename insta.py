@@ -1,5 +1,5 @@
 from sys import argv
-import urllib
+import urllib.request
 from bs4 import BeautifulSoup
 import datetime
 
@@ -22,7 +22,7 @@ def ShowHelp():
 
 def DownloadSingleFile(fileURL):
 	print('Downloading image...')
-	f = urllib.urlopen(fileURL)
+	f = urllib.request.urlopen(fileURL)
 	htmlSource = f.read()
 	soup = BeautifulSoup(htmlSource,'html.parser')
 	metaTag = soup.find_all('meta', {'property':'og:image'})
